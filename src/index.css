@@ -20,3 +20,10 @@ img {
   max-width: 100%;
   height: auto;
 }
+.box.big {
+  width: 200px;
+  height: 200px;
+}
+.box.red {
+  background-color: red;
+}
