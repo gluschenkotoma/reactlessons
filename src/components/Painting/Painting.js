@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
+import './Painting.css';
 
 // ВСЕГДА 1 параметр PROPS
-export default function Painting(props) {
+function Painting(props) {
   const { imageUrl, title, profileUrl, author, price, quantity } = props;
   console.log(props);
   return (
-    <div>
+    <div className="Painting">
       <img src={imageUrl} alt={title} width="480" />
       <h2>{title}</h2>
       <p>
@@ -28,29 +29,4 @@ Painting.propTypes = {
   quantity: PropTypes.number.isRequired,
 };
 
-// arrow
-// const function Painting(props) => {
-//   const { url, title, profileUrl, author, price } = props;
-//   console.log(props);
-//   return (
-//     <div>
-//       <img src={url} alt={title} width="480" />
-//       <h2>{title}</h2>
-//       <p>
-//         Автор: <a href={profileUrl}>{author}</a>
-//       </p>
-//       <p>Цена:{price} кредитов</p>
-//       <p>Доступность: заканчивается или есть в наличии</p>
-//       <button type="button">Добавить в корзину</button>
-//     </div>
-//   );
-// }
-// export default Painting
-//
-// true && 1 // 1
-// false && 1 //false
-// 0 && 2 // 0
-
-// true||1 //true
-// false || 1 //1
-//
+export default Painting;
