@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import User from './components/User/User';
+
+const friends = [
+  { id: 1, name: 'Jakov', age: 4 },
+  { id: 2, name: 'Taras', age: 47 },
+];
 
 function App() {
+  const sayHello = () => {
+    console.log(`Hello!`);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <User name="Tamara" age="38" friends={friends} myMethod={sayHello} />
+      <h1>Lesson1</h1>
+    </>
   );
 }
 
