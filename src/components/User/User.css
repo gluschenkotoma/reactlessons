@@ -1,0 +1,10 @@
+.userBtn {
+  background-color: rgb(124, 192, 177);
+  color: brown;
+  padding: 20px;
+  border: 2px solid blue;
+}
+.btn {
+  /* убивает все стили и инлайн стили */
+  background-color: rgb(158, 94, 160) !important;
+}

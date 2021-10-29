@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+// импорт модульного файла стилей
+import s from './Friends.module.scss';
 
 export function Friends({ friends, children }) {
   return (
@@ -11,6 +13,9 @@ export function Friends({ friends, children }) {
               <li key={friend.id}>
                 <h3>{friend.name}</h3>
                 <p>{friend.age}</p>
+                <button className={s.userBtn} type="button">
+                  Click
+                </button>
               </li>
             );
           })}
@@ -29,4 +34,5 @@ Friends.protoType = {
       age: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
   ), //ptao +ptsh +ptet +pts +ptet
+  children: PropTypes.any,
 };
