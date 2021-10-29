@@ -7,10 +7,51 @@ import UserMenu from './UserMenu';
 import { Friends } from '../Friends/Friends';
 //затянуть компонент с bootstrap
 import { Button } from 'react-bootstrap';
+//библиотека 'styled-components'
+import styled from 'styled-components';
+// импорт изображения
+// import img1 from '../../images/img1.jpeg';
+//импорт компонента Icons
+import { Icons } from '../../components/Icons';
+
+//  стили компонента Styles с биб.styled-components'
+const Styles = styled.section`
+  .styleBtn {
+    background: black;
+    color: white;
+  }
+`;
 
 function User({ name, age, friends, myMethod }) {
   return (
-    <>
+    <div className={s.wrapper}>
+      {/* спрайт */}
+      <ul>
+        <li>
+          <Icons
+            name="instagram-icon"
+            className="svg"
+            color="blue"
+            stroke="red"
+            width="100"
+            // height="30"
+          />
+        </li>
+      </ul>
+      {/* <img src={img1} width="100px" alt="img" /> */}
+      {/* библиотека 'styled-components' компонент Styles с класом styleBtn*/}
+      <Styles>
+        <button
+          className="userBtn styleBtn"
+          type="button"
+          // onClick={() => {
+          //   alert('You press on button!');
+          // }}
+          onClick={myMethod}
+        >
+          Click
+        </button>
+      </Styles>
       {/* <Friends friends={friends} -> без детей /> */}
       {/* <Friends>...</Friends>   ...дети  */}
       {/* friends={friends} фу-я по условию с Friend.js */}
@@ -33,17 +74,7 @@ function User({ name, age, friends, myMethod }) {
       >
         Warning
       </Button>{' '}
-      <button
-        className="userBtn"
-        type="button"
-        // onClick={() => {
-        //   alert('You press on button!');
-        // }}
-        onClick={myMethod}
-      >
-        Click
-      </button>
-    </>
+    </div>
   );
 }
 
