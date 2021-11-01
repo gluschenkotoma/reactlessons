@@ -1,5 +1,5 @@
 import React from 'react';
-import Counter from './components/Counter/Counter';
+import Counter from './components/Counter/Counter'; //импорт каунтера
 // const colorPickerOptions = [
 //   { label: 'red', color: '#F44336' },
 //   { label: 'green', color: '#4CAF50' },
@@ -11,6 +11,7 @@ import Counter from './components/Counter/Counter';
 const App = () => (
   <>
     <h1>Сoстояние компонента</h1>
+    {/* рендер каунтера */}
     <Counter />
   </>
 );
