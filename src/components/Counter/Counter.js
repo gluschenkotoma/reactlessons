@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Controls from './Controls';
 import './Counter.css';
 
 // сделать класс -> class Name extends React.Component
-class Counter extends React.Component {
+class Counter extends Component {
   // СТАТИКА===================
   // если не прописать в App значение initialvalue -> <Counter initialvalue={} />, то сломается верстка, поэтому прописывается дефолтное значение
   static defaultProps = { initialValue: 0 };
@@ -78,11 +78,12 @@ class Counter extends React.Component {
   // METHOD RENDER ====================================
   // -> метод класа, возвращает разметку jsx
   render() {
+    const { value } = this.state;
     return (
       <div className="Counter">
         {/* значение 0 берется с хранилища state со свойства value*/}
         {/* шаблон со значением модели, шаблон зависит от модели */}
-        <span className="Counter__value">{this.state.value}</span>
+        <span className="Counter__value">{value}</span>
         {/* ПОДНЯТИЕ СОСТОЯНИЙ */}
         {/* 1.Controls.js ->const Controls = (onIncrement, onDecrement) => ( */}
         {/* 2.Controls.js ->onClick={onIncrement} */}
