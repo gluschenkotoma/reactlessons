@@ -13,7 +13,7 @@ const App = () => (
     <h1>Сoстояние компонента</h1>
     {/* рендер каунтера */}
     {/* initialvalue - єто передача state с этого значения {0} в классе -> state = {value: this.props.initialValue,};*/}
-    <Counter initialvalue={0} />
+    <Counter initialValue={10} />
   </>
 );
 export default App;

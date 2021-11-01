@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Controls from './Controls';
 import './Counter.css';
 
 // сделать класс -> class Name extends React.Component
@@ -83,22 +83,13 @@ class Counter extends React.Component {
         {/* значение 0 берется с хранилища state со свойства value*/}
         {/* шаблон со значением модели, шаблон зависит от модели */}
         <span className="Counter__value">{this.state.value}</span>
-        <div className="Counter__controls">
-          <button
-            type="button"
-            // 1.повесить событие onClick={() => {}}-инлайн функция колбэк, регистрация, this по умолчанию будет ссылаться на экземпляр класса
-            // onClick={() => {
-            //   console.log('Clicked on button increment');
-            // }}
-            // 2.вынести онлайн колбэк в метод класса
-            onClick={this.handleIncrement}
-          >
-            Увеличить на 1
-          </button>
-          <button type="button" onClick={this.handleDecrement}>
-            Уменьшить на 1
-          </button>
-        </div>
+        {/* ПОДНЯТИЕ СОСТОЯНИЙ */}
+        {/* 1.Controls.js ->const Controls = (onIncrement, onDecrement) => ( */}
+        {/* 2.Controls.js ->onClick={onIncrement} */}
+        <Controls
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+        />
       </div>
     );
   }
