@@ -1,5 +1,6 @@
 import React from 'react';
 import Counter from './components/Counter/Counter'; //импорт каунтера
+import Dropdown from './components/Dropdown/Dropdown';
 // const colorPickerOptions = [
 //   { label: 'red', color: '#F44336' },
 //   { label: 'green', color: '#4CAF50' },
@@ -10,10 +11,12 @@ import Counter from './components/Counter/Counter'; //импорт каунте�
 // ];
 const App = () => (
   <>
-    <h1>Сoстояние компонента</h1>
+    {/* <h1>Сoстояние компонента</h1> */}
     {/* рендер каунтера */}
     {/* initialvalue - єто передача state с этого значения {0} в классе -> state = {value: this.props.initialValue,};*/}
     <Counter initialValue={10} />
+
+    <Dropdown />
   </>
 );
 export default App;
