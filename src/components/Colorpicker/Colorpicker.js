@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import classNames from 'classnames';
 import './Colorpicker.css';
 
 class ColorPicker extends Component {
@@ -13,14 +13,20 @@ class ColorPicker extends Component {
     this.setState({ activeOptionIdx: index });
   };
   makeOptionClassName = index => {
-    // базовый класс
-    const optionClasses = ['ColorPicker__option'];
-    // если index равен с индексом масива this.state.activeOptionIdx, то добавить класс,если нет то - none * /}
-    //  в зависимости от этого -> index === this.state.activeOptionIdx ->добавить клас
-    if (index === this.state.activeOptionIdx) {
-      optionClasses.push('ColorPicker__option--active');
-    }
-    return optionClasses.join(' ');
+    // 1 библиотека classNames
+    // базовые класы, в {}- которые зависят от условия
+    return classNames('ColorPicker__option', {
+      'ColorPicker__option--active': index === this.state.activeOptionIdx,
+    });
+
+    // 2 // базовый класс
+    // const optionClasses = ['ColorPicker__option'];
+    // // если index равен с индексом масива this.state.activeOptionIdx, то добавить класс,если нет то - none * /}
+    // //  в зависимости от этого -> index === this.state.activeOptionIdx ->добавить клас
+    // if (index === this.state.activeOptionIdx) {
+    //   optionClasses.push('ColorPicker__option--active');
+    // }
+    // return optionClasses.join(' ');
   };
 
   render() {
