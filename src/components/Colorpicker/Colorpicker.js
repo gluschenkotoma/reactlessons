@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './ColorPicker.css';
+
+import './Colorpicker.css';
 
 class ColorPicker extends Component {
   // сохранить выбранную текущую опцию, сохранив в state ее индекс,

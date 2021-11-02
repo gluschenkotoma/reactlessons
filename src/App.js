@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Counter from './components/Counter'; //импорт каунтера
 import Dropdown from './components/Dropdown';
-import ColorPicker from './components/ColorPicker';
+import ColorPicker from './components/Colorpicker';
 import TodoList from './components/TodoList';
 import initialTodos from './todos.json';
 
