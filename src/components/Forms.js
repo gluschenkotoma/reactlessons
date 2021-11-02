@@ -6,6 +6,10 @@ class Form extends Component {
     //   только для перерисовывания инпута, не для сабмита
     name: '',
     tag: '',
+    // для radiobutton
+    experience: 'junior',
+    // checkbox
+    licence: false,
   };
 
   nameInputId = shortid.generate();
@@ -41,6 +45,12 @@ class Form extends Component {
     // передать начальное состояние state
     this.setState({ name: '', tag: '' });
   };
+  // for chackbox
+  handleLicenceChange = e => {
+    console.log(e.currentTarget.checked);
+
+    this.setState({ licence: e.currentTarget.checked });
+  };
 
   render() {
     return (
@@ -57,7 +67,7 @@ class Form extends Component {
             id={this.nameInputId} //shortid
           />
         </label>
-
+        <br />
         <label htmlFor={this.tagInputId}>
           Nickname
           <input
@@ -69,6 +79,55 @@ class Form extends Component {
             id={this.tagInputId}
           />
         </label>
+        <br />
+        {/* RADIOBUTTON */}
+
+        <p>Ваш уровень: </p>
+
+        <label>
+          <input
+            type="radio"
+            name="experience"
+            onChange={this.handleChange}
+            value="junior"
+            checked={this.state.experience === 'junior'}
+          />
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="experience"
+            onChange={this.handleChange}
+            value="middle"
+            checked={this.state.experience === 'middle'}
+          />
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="experience"
+            onChange={this.handleChange}
+            value="senior"
+            checked={this.state.experience === 'senior'}
+          />
+        </label>
+        <br />
+
+        {/* CHECKBOX */}
+
+        <label>
+          <input
+            type="checkbox"
+            name="licence"
+            checked={this.state.licence}
+            onChange={this.handleLicenceChange}
+          />
+          Согласен с условием
+        </label>
+
+        <br />
+
+        {/* SUBMIT */}
         <button type="submit">Send</button>
       </form>
     );
