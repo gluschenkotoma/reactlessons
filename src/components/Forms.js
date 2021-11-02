@@ -125,10 +125,10 @@ class Form extends Component {
           Согласен с условием
         </label>
 
-        <br />
-
         {/* SUBMIT */}
-        <button type="submit">Send</button>
+        <button type="submit" disabled={!this.state.licence}>
+          Send
+        </button>
       </form>
     );
   }
