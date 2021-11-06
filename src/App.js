@@ -82,7 +82,6 @@ class App extends Component {
         {/* рендер только видимых, отфильтрованых тудушек */}
         <TodoList todos={visibleTodos} onDeleteTodo={this.deleteTodo} />
         <Filter onChange={this.changeFilter} value={filter} />
-        <h1>Phonebook</h1>
 
         <div>
           <p>Oбщее количество: {totalTodoCount}</p>
