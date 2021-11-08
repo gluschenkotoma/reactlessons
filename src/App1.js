@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Modal from './components/Modal';
 // import Clock from './components/Clock';
+import Tabs from './components/Tabs';
+import items from './tabs.json';
 
 class App extends Component {
   state = {
@@ -19,6 +21,8 @@ class App extends Component {
     const { showModal } = this.state;
     return (
       <>
+        <Tabs items={items} />
+
         <button type="button" onClick={this.toggleModal}>
           Open ModalWindow
         </button>
