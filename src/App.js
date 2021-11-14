@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
-import PicturesApi from './tools/PicturesApi';
+import fetchPicturesWithQuery from './tools/PicturesApi';
 import ImageGallery from './components/ImageGallery';
 import Button from './components/Button';
 import Loader from './components/Loader';
@@ -45,7 +45,7 @@ export default class App extends Component {
   fetchPictures = () => {
     const { searchQuery, page } = this.state;
     this.setState({ isLoading: true });
-    PicturesApi.fetchPicturesWithQuery(searchQuery, page)
+    fetchPicturesWithQuery(searchQuery, page)
       .then(pictures =>
         this.setState(prevState => ({
           pictures: [...prevState.pictures, ...pictures],

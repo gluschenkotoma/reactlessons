@@ -8,9 +8,7 @@ const fetchPicturesWithQuery = (searchQuery, page = 1) => {
     .then(response => response.data.hits);
 };
 
-export default {
-  fetchPicturesWithQuery,
-};
+export default fetchPicturesWithQuery;
 
 // API key: 22755596-bd5bc4dc11dbf7c870dedd292
 // https://pixabay.com/api/
