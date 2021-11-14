@@ -23,7 +23,6 @@
     "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2"
   },
-  "homepage": "https://gluschenkotoma.github.io/goit-react-hw-03-image-finder",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -33,6 +32,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "homepage": "http://gluschenkotoma.github.io/goit-react-hw-03-image-finder",
   "eslintConfig": {
     "extends": [
       "react-app",
