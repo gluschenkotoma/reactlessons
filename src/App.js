@@ -9,9 +9,9 @@ const CustomLoader = () => (
 // async-aсинхронная фу-я
 // await -подожди пока ты выполнийся
 // data -результат выполнения
-const fetchNews = async () => {
+const fetchNews = async (page = 1) => {
   return await axios.get(`
-    https://newsapi.org/v2/everything?q=tesla&from=2021-10-18&sortBy=publishedAt&apiKey=81ca568593d14411b4ea31670213b42d&page=1`);
+    https://newsapi.org/v2/everything?q=tesla&from=2021-10-18&sortBy=publishedAt&apiKey=81ca568593d14411b4ea31670213b42d&page={page}`);
 };
 
 // fetchNews()
@@ -23,6 +23,7 @@ class App extends Component {
     news: [],
     errors: { message: '', status: '' },
     loadingloading: true,
+    currentPage: 1,
   };
 
   componentDidMount() {
@@ -44,6 +45,35 @@ class App extends Component {
       }
     })();
   }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.currentPage !== this.state.currentPage) {
+      (async () => {
+        try {
+          this.setState({ loading: true });
+          // this.state.currentPage -актуальность page
+          const news = await fetchNews(this.state.currentPage);
+          console.log('news', news);
+          this.setState({
+            news: [...prevState.news, ...news.data.articles],
+            loading: false,
+          }); // в components state  news:[{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, …]
+        } catch (error) {
+          console.log('error.response', error.response); // в components state errors:"Your API key is missing. Append this to the URL with the apiKey param, or use the x-api-key HTTP header."
+          this.setState({
+            errors: {
+              message: error.response.data.message,
+              status: error.response.status,
+            },
+            loading: false,
+          });
+        }
+      })();
+    }
+  }
+  //   меод изменения currentPage(загрузка страниц)
+  nextPage = () => {
+    this.setState({ currentPage: this.state.currentPage + 1 });
+  };
 
   render() {
     const { loading, errors, news } = this.state;
@@ -53,12 +83,14 @@ class App extends Component {
         {errors.message ? (
           <h2>{errors.message}</h2>
         ) : (
-          news.map(article => (
-            <>
+          <>
+            {news.map(article => (
               <h2>{article.content}</h2>
-              <button>Load more ...</button>
-            </>
-          ))
+            ))}
+            <button type="button" onClick={this.nextPage}>
+              Load more ...
+            </button>
+          </>
         )}
       </>
     );
