@@ -1,18 +1,6 @@
 {
   "teachers": [
     {
-      "name": "Наташа",
-      "surname": "Чобот",
-      "description": "Преподаватель",
-      "id": 1
-    },
-    {
-      "name": "Эдуард",
-      "surname": "Коновка",
-      "description": "Ученик",
-      "id": 2
-    },
-    {
       "name": "Саша",
       "surname": "Репета",
       "description": "",
@@ -23,12 +11,6 @@
       "surname": "Веселая",
       "description": "",
       "id": 4
-    },
-    {
-      "name": "Саша",
-      "surname": "Воробей",
-      "description": "Новичок",
-      "id": 5
     },
     {
       "name": "Эд",
