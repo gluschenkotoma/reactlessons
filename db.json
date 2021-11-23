@@ -1,0 +1,22 @@
+{
+  "teachers": [
+    {
+      "name": "Саша",
+      "surname": "Репета",
+      "description": "",
+      "id": 3
+    },
+    {
+      "name": "Валентина",
+      "surname": "Веселая",
+      "description": "",
+      "id": 4
+    },
+    {
+      "name": "Эд",
+      "surname": "Коновка",
+      "description": "Ученик",
+      "id": 6
+    }
+  ]
+}
