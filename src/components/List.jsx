@@ -1,9 +1,9 @@
-import { Card } from "./Card";
+import { Card } from './Card';
 
 function List({ items = [], deleteItem = () => {} }) {
   return (
     <>
-      {items.map((item) => (
+      {items.map(item => (
         <Card
           key={item.id}
           id={item.id}
