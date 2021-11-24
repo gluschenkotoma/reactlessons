@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Input } from './Input/Input';
-import { Button } from './Button/Button';
+import { Input } from '../components/Input/Input';
+import { Button } from '../components/Button/Button';
+import { addTeacher } from '../api/teachers';
 
 // const INITIAL_FORM_VALUES = {
 //   name: '',
 //   surname: '',
 //   description: '',
 // };
-function Form({ onSubmit }) {
+// function Form({ onSubmit }) {
+function Form() {
   // const [values, setValues] = useState(INITIAL_FORM_VALUES);
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -72,6 +74,15 @@ function Form({ onSubmit }) {
     setDescription('');
   };
 
+  const onSubmit = async item => {
+    try {
+      await addTeacher(item);
+      // const response = await addTeacher(item);
+      // setItems(prevItems => [...prevItems, response]);
+    } catch (error) {
+      alert(error.toString());
+    }
+  };
   // handleSubmit = e => {
   //   e.preventDefault();
   //   this.props.onSubmit(this.state);

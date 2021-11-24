@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Button } from './Button/Button';
-import { Header } from './Header/Header';
-import { Form } from './Form';
-import { List } from './List';
-import { getTeachers, addTeacher, deleteTeacher } from '../api/teachers';
+// import { Button } from '../components/Button/Button';
+import { Header } from '../components/Header/Header';
+
+import { List } from '../components/List';
+import { getTeachers, deleteTeacher } from '../api/teachers';
 
 /**
  * Section { items }
@@ -16,14 +17,15 @@ import { getTeachers, addTeacher, deleteTeacher } from '../api/teachers';
  */
 //запуск 2bash npm run server+ npm start
 
-
-function Section() {
+function Teachers() {
   // setShowed - фу-я для обновления поля
   // showed - переменная состояния
   // (true) - дефолтное значение состояния
-  const [showed, setShowed] = useState(true);
+
+  // const [showed, setShowed] = useState(true);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [filteredItems, setFilteredItems] = useState(items);
   // state = {
   //   showed: true,
   //   items: [],
@@ -56,21 +58,22 @@ function Section() {
   // }
 
   // приставка prev - это предсостояние, предсостояние состояния-переменной setShowed -Showed
-  const handleToggle = () => {
-    setShowed(prevShowed => !prevShowed);
-  };
+  // const handleToggle = () => {
+  //   setShowed(prevShowed => !prevShowed);
+  // };
   // handleToggle = () => {
   //   setState(prevState => ({ showed: !prevState.showed }));
   // };
 
-  const handleAddItem = async item => {
-    try {
-      const response = await addTeacher(item);
-      setItems(prevItems => [...prevItems, response]);
-    } catch (error) {
-      alert(error.toString());
-    }
-  };
+  // const handleAddItem = async item => {
+  //   try {
+  //     const response = await addTeacher(item);
+  //     setItems(prevItems => [...prevItems, response]);
+  //   } catch (error) {
+  //     alert(error.toString());
+  //   }
+  // };
+
   // handleAddItem = async item => {
   //   try {
   //     const res = await addTeacher(item);
@@ -103,6 +106,9 @@ function Section() {
   //       alert(error.toString());
   //     });
   // };
+  const filterItems = () => {
+    setFilteredItems(items.filter(item => item.description));
+  };
 
   return (
     <>
@@ -110,17 +116,22 @@ function Section() {
       {loading && <p>Loading...</p>}
       {items.length > 0 && <List items={items} deleteItem={handleDeleteItem} />}
       <br />
-      <Button
+      <button onClick={filterItems} type="button">
+        Show with description
+      </button>
+      {filteredItems.length > 0 && <List items={filteredItems} />}
+      {/* <Button
         name={showed ? 'Скрыть форму' : 'Показать форму'}
         onClick={handleToggle}
-      />
+      /> */}
       <hr />
 
       <br />
 
-      {showed ? <Form onSubmit={handleAddItem} /> : null}
+      {/* {showed ? <Form onSubmit={handleAddItem} /> : null} */}
+      <Link to="/form">Форма добавления преподавателей</Link>
     </>
   );
 }
 
-export { Section };
+export { Teachers };
