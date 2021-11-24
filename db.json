@@ -1,0 +1,16 @@
+{
+  "teachers": [
+    {
+      "name": "Саша",
+      "surname": "Репета",
+      "description": "234567890",
+      "id": 1
+    },
+    {
+      "name": "Toma",
+      "surname": "Glushchenko",
+      "description": "Миллиардер",
+      "id": 3
+    }
+  ]
+}
