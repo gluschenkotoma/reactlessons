@@ -23,7 +23,7 @@ function Card({ id, name, surname, description, handleDelete }) {
   );
 }
 Card.prototype = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   surname: PropTypes.string.isRequired,
   description: PropTypes.string,

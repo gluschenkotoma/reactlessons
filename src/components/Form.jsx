@@ -15,8 +15,10 @@ function Form({ onSubmit }) {
 
   //
   useEffect(() => {
+    console.log('useEffect: componentDidMount');
     window.addEventListener('scroll', onScroll, false);
     return () => {
+      console.log('useEffect: componentWillUnmount');
       window.removeEventListener('scroll', onScroll, false);
     };
   }, []);

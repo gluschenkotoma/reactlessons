@@ -2,7 +2,7 @@
 
 import './styles.css';
 
-function Input(type = 'input', onChange, labelName, name, value) {
+function Input({ type = 'input', onChange, labelName, name, value }) {
   // static defaultProps = {
   //   type: 'input',
   // };
