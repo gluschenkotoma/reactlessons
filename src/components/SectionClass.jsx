@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { Button } from "./Button/Button";
-import { Header } from "./Header/Header";
-import { Form } from "./Form";
-import { List } from "./List";
-import { getTeachers, addTeacher, deleteTeacher } from "../api/teachers";
+import { Button } from './Button/Button';
+import { Header } from './Header/Header';
+import { Form } from './Form';
+import { List } from './List';
+import { getTeachers, addTeacher, deleteTeacher } from '../api/teachers';
+import { Loading } from './Loading';
 
 /**
  * Section { items }
@@ -45,14 +46,14 @@ class Section extends React.Component {
   }
 
   handleToggle = () => {
-    this.setState((prevState) => ({ showed: !prevState.showed }));
+    this.setState(prevState => ({ showed: !prevState.showed }));
   };
 
-  handleAddItem = async (item) => {
+  handleAddItem = async item => {
     try {
       const res = await addTeacher(item);
 
-      this.setState((prevState) => ({
+      this.setState(prevState => ({
         items: [...prevState.items, res],
       }));
     } catch (error) {
@@ -60,14 +61,14 @@ class Section extends React.Component {
     }
   };
 
-  handleDeleteItem = (id) => {
+  handleDeleteItem = id => {
     deleteTeacher(id)
       .then(() => {
-        this.setState((prevState) => ({
-          items: prevState.items.filter((i) => i.id !== id),
+        this.setState(prevState => ({
+          items: prevState.items.filter(i => i.id !== id),
         }));
       })
-      .catch((error) => {
+      .catch(error => {
         alert(error.toString());
       });
   };
@@ -78,13 +79,13 @@ class Section extends React.Component {
     return (
       <>
         <Header size="h2" title="Список преподавателей" />
-        {loading && <p>Loading...</p>}
+        {loading && <Loading />}
         {items.length > 0 && (
           <List items={this.state.items} deleteItem={this.handleDeleteItem} />
         )}
         <br />
         <Button
-          name={this.state.showed ? "Скрыть форму" : "Показать форму"}
+          name={this.state.showed ? 'Скрыть форму' : 'Показать форму'}
           onClick={this.handleToggle}
         />
         <hr />

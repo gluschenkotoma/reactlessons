@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { Input } from "../components/Input/Input";
-import { Button } from "../components/Button/Button";
-import { addTeacher } from "../api/teachers";
+import { Input } from '../components/Input/Input';
+import { Button } from '../components/Button/Button';
+import { addTeacher } from '../api/teachers';
 
 function Form() {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [description, setDescription] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     onSubmit({ name, surname, description });
@@ -19,15 +19,15 @@ function Form() {
   };
 
   const clearForm = () => {
-    setName("");
-    setSurname("");
-    setDescription("");
+    setName('');
+    setSurname('');
+    setDescription('');
   };
 
-  const onSubmit = async (item) => {
+  const onSubmit = async item => {
     try {
       await addTeacher(item);
-      navigate("/teachers");
+      navigate('/teachers');
     } catch (error) {
       alert(error.toString());
     }
@@ -54,4 +54,4 @@ function Form() {
   );
 }
 
-export { Form };
+export default Form;

@@ -1,13 +1,17 @@
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { Header } from '../components/Header';
+import { Loading } from '../components/Loading';
 import { useFetch } from '../hooks/useFetch';
 
 function Teacher() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const teacher = useFetch(id);
+  const { item: teacher, loading } = useFetch(id); //api
+  if (loading) {
+    return <Loading color="#00cc00" />;
+  }
 
   return (
     <>
