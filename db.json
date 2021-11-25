@@ -1,0 +1,34 @@
+{
+  "teachers": [
+    {
+      "name": "Саша",
+      "surname": "Репета",
+      "description": "234567890",
+      "id": 1
+    },
+    {
+      "name": "Toma",
+      "surname": "Glushchenko",
+      "description": "Миллиардер",
+      "id": 3
+    },
+    {
+      "name": "bjbjk",
+      "surname": "jbjb",
+      "description": "jhvjhvjh",
+      "id": 4
+    },
+    {
+      "name": "Toma",
+      "surname": "hjvjhvhj",
+      "description": "",
+      "id": 5
+    },
+    {
+      "name": "Toma",
+      "surname": "Glushchenko",
+      "description": "",
+      "id": 6
+    }
+  ]
+}
