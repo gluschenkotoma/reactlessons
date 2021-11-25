@@ -1,7 +1,7 @@
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
 
-import { Header } from "../components/Header";
-import { useFetch } from "../hooks/useFetch";
+import { Header } from '../components/Header';
+import { useFetch } from '../hooks/useFetch';
 
 function Teacher() {
   const { id } = useParams();
@@ -20,4 +20,4 @@ function Teacher() {
   );
 }
 
-export { Teacher };
+export default Teacher;

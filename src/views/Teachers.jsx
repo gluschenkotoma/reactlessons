@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Header } from "../components/Header";
-import { List } from "../components/List";
-import { getTeachers, deleteTeacher } from "../api/teachers";
+import { Header } from '../components/Header';
+import { List } from '../components/List';
+import { getTeachers, deleteTeacher } from '../api/teachers';
 
 /**
  * useMemo
@@ -31,18 +31,18 @@ function Teachers() {
     fetchItems();
   }, []);
 
-  const handleDeleteItem = (id) => {
+  const handleDeleteItem = id => {
     deleteTeacher(id)
       .then(() => {
-        setItems((prevItems) => prevItems.filter((i) => i.id !== id));
+        setItems(prevItems => prevItems.filter(i => i.id !== id));
       })
-      .catch((error) => {
+      .catch(error => {
         alert(error.toString());
       });
   };
 
   const filterItems = () => {
-    setFilteredItems(items.filter((item) => item.description));
+    setFilteredItems(items.filter(item => item.description));
   };
 
   return (
@@ -61,4 +61,4 @@ function Teachers() {
   );
 }
 
-export { Teachers };
+export default Teachers;
