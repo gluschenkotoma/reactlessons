@@ -1,6 +1,9 @@
 import Loader from 'react-loader-spinner';
+import { useContext } from 'react';
+import { ThemeContext } from '../App';
 
-function Loading({ color = '#714088' }) {
+function Loading({ color }) {
+  const theme = useContext(ThemeContext);
   return (
     <div
       style={{
@@ -11,7 +14,13 @@ function Loading({ color = '#714088' }) {
         alignItems: 'center',
       }}
     >
-      <Loader type="Hearts" color={color} height={180} width={180} />;
+      <Loader
+        type="Hearts"
+        color={color || theme.color}
+        height={180}
+        width={180}
+      />
+      ;
     </div>
   );
 }

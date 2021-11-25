@@ -10,7 +10,7 @@ function Teacher() {
 
   const { item: teacher, loading } = useFetch(id); //api
   if (loading) {
-    return <Loading color="#00cc00" />;
+    return <Loading />;
   }
 
   return (
