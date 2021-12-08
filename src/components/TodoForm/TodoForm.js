@@ -1,25 +1,32 @@
-import React, { useState, useContext } from "react";
-import { Input } from "../../ui/Input/Input";
-import { SubmitButton } from "../../ui/SubmitButton/SubmitButton";
-import { Form, InputBox } from "./TodoForm.styles";
-import { v4 as uuid } from "uuid";
-import { useDispatch } from "react-redux";
-import { addTodo } from "../../redux/actions";
+import React, { useContext, useState } from 'react';
+import { Input } from '../../ui/Input/Input';
+import { SubmitButton } from '../../ui/SubmitButton/SubmitButton';
+import { Form, InputBox } from './TodoForm.styles';
+import { v4 as uuid } from 'uuid';
+import { TodoContext } from '../../context/TodoContext';
+// import { useDispatch } from 'react-redux';
+// import { addTodo } from '../../redux/actions';
 
 export const TodoForm = () => {
-  const dispatch = useDispatch();
+  const state = useContext(TodoContext);
+  // const dispatch = useDispatch();
 
   const [todo, setTodo] = useState({
-    learn: "",
-    description: "",
+    learn: '',
+    description: '',
   });
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = evt => {
     evt.preventDefault();
-    dispatch(addTodo({ ...todo, id: uuid() }));
+    console.log('todo todoForm', todo); //todo {learn: 'react', description: 'dont know'}
+    console.log('state TodoForm', state); //state {state: {…}, dispatch: ƒ}
+    // addTodo-
+    //...todo-
+    state.dispatch({ type: 'addTodo', payload: { ...todo, id: uuid() } });
+    setTodo({ learn: '', description: '' });
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     const { value, name } = event.target;
     setTodo({ ...todo, [name]: value });
   };
